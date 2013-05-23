@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby19
 #
 #  get_distribution_image DB KEY nodes|ways
 #
