@@ -20,7 +20,7 @@ echo "`$DATECMD` Start wiki..."
 
 EXEC_RUBY="$TAGINFO_RUBY"
 if [ "x$EXEC_RUBY" = "x" ]; then
-    EXEC_RUBY=ruby
+    EXEC_RUBY=ruby19
 fi
 echo "Running with ruby set as '${EXEC_RUBY}'"
 
