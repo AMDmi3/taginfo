@@ -50,7 +50,7 @@
         // Note that this will NOT work for the "db" source! Well, you can download it,
         // but it will fail later, because the database is changed by the master.sql
         // scripts.
-        "download": "languages josm potlatch merkaartor wiki",
+        "download": "languages josm potlatch wiki",
         // These sources will be created from the actual sources.
         "create": "db",
         "db": {
@@ -58,6 +58,18 @@
             "tagstats": "./tagstats",
             // The OSM planet file or extract where we read the OSM data from.
             "planetfile": "/osm/planet/var/current-planet.osm.pbf"
+        },
+        "master": {
+            // Minimum number of occurances of a tag to make it
+            // potentially "interesting", ie. create tag combination
+            // statistics for it.
+            "min_count_tags": 10000,
+            // Tag combinations not appearing this often are not written to database.
+            "min_tag_combination_count": 1000,
+            // Minimum number of relations per type to make this
+            // relation type "interesting", ie. to make it show
+            // up as a relation type.
+            "min_count_relations_per_type": 100
         }
     },
     "logging": {
@@ -70,6 +82,8 @@
         "cxxflags": "-I../../../osmium/osmium/include",
         // Node location store. For really large OSM files (whole planet or large continent)
         // this should be "MmapAnon", otherwise "SparseTable".
-        "geodistribution": "SparseTable"
+        "geodistribution": "SparseTable",
+        // C++ type used for geodistribution
+        "geodistribution_int": "uint16_t"
     }
 }
